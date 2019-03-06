@@ -27,6 +27,10 @@ const songs = {
 
 const queues = {};
 
+client.on('ready', () => {
+  client.user.setGame('!leozoinho');
+});
+
 client.on('message', message => {
   if (!message.guild) return;
 
