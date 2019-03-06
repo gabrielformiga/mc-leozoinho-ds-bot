@@ -4,8 +4,6 @@ const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 const streamOptions = { seek: 0, volume: 0.2 };
 
-client.login(process.env.BOT_TOKEN);
-
 const songs = {
   '!jao': 'https://www.youtube.com/watch?v=u3tYgLtePy4',
   '!brotar': 'https://www.youtube.com/watch?v=7FPq57MAOJI',
@@ -28,11 +26,12 @@ const songs = {
 const queues = {};
 
 client.on('ready', () => {
-  client.user.setGame('!leozoinho');
+  updateActivity();
 });
 
 client.on('message', message => {
   if (!message.guild) return;
+  if (message.author.bot) return;
 
   if (!(message.guild.id in queues)) {
     queues[message.guild.id] = [];
@@ -72,3 +71,23 @@ async function play(connection, message) {
 
   dispatcher.on('error', console.log);
 }
+
+client.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+  if (!channel) return;
+  channel.send(`Um salve da galera do Curado, PCP, Coque, Mustardinha e da Jão para ${member}`);
+});
+
+client.on("guildCreate", () => {
+  updateActivity();
+});
+
+client.on("guildDelete", () => {
+  updateActivity();
+});
+
+async function updateActivity() {
+  client.user.setActivity(`!leozoinho | ${client.guilds.size} Guilds`);
+}
+
+client.login(process.env.BOT_TOKEN);
