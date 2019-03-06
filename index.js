@@ -33,6 +33,10 @@ client.on('message', message => {
   if (!message.guild) return;
   if (message.author.bot) return;
 
+  if (!(message.guild.id in queues)) {
+    queues[message.guild.id] = [];
+  }
+
   if (message.content in songs) {
     if (message.member.voiceChannel) {
       message.member.voiceChannel.join()
