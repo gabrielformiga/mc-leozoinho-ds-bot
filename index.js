@@ -33,10 +33,6 @@ client.on('message', message => {
   if (!message.guild) return;
   if (message.author.bot) return;
 
-  if (!(message.guild.id in queues)) {
-    queues[message.guild.id] = [];
-  }
-
   if (message.content in songs) {
     if (message.member.voiceChannel) {
       message.member.voiceChannel.join()
@@ -78,12 +74,20 @@ client.on('guildMemberAdd', member => {
   channel.send(`Um salve da galera do Curado, PCP, Coque, Mustardinha e da Jão para ${member}`);
 });
 
-client.on("guildCreate", () => {
-  updateActivity();
+client.on('guildMemberRemove', member => {
+  const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+  if (!channel) return;
+  channel.send(`Rala peito ${member}`);
 });
 
-client.on("guildDelete", () => {
+client.on("guildCreate", guild => {
   updateActivity();
+  queues[guild.id] = [];
+});
+
+client.on("guildDelete", guild => {
+  updateActivity();
+  delete queues[guild.id];
 });
 
 async function updateActivity() {
