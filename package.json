@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node index.js"
   },
+  "engines": {
+    "node": "10.15.1"
+  },
   "author": "formiga <gabriel.formiga@gmail.com>",
   "license": "MIT",
   "dependencies": {
