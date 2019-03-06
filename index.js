@@ -57,22 +57,17 @@ client.on('message', message => {
 });
 
 async function play(connection, message) {
-  console.log('going to play ' + message.content);
-
   queues[message.guild.id].push(message.content);
 
   const link = songs[message.content];
   const stream = ytdl(link, { filter : 'audioonly' });
-  console.log('created ytdl stream');
   const dispatcher = connection.playStream(stream, streamOptions);
-  console.log('playing ' + message.content);
 
   dispatcher.on('end', () => {
     queues[message.guild.id].shift();
     if (queues[message.guild.id].length == 0) {
       connection.disconnect();
     }
-    console.log('end playing ' + message.content);
   });
 
   dispatcher.on('error', console.log);
