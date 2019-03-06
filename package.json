@@ -1,0 +1,17 @@
+{
+  "name": "mc-leozoinho-recife",
+  "version": "1.0.0",
+  "description": "Bot do Discord que toca os melhores hits do Mc Leozinho do Recife",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "formiga <gabriel.formiga@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "ffmpeg-binaries": "^4.0.0",
+    "node-opus": "^0.3.1",
+    "ytdl-core": "^0.29.1"
+  }
+}
