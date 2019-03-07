@@ -20,7 +20,8 @@ const songs = {
   '!muleque': 'https://www.youtube.com/watch?v=RDL_yz6MxrU',
   '!protecao': 'https://www.youtube.com/watch?v=l0aSvVBMzDk',
   '!pv': 'https://www.youtube.com/watch?v=S0spKItTKqc',
-  '!mustardinha': 'https://www.youtube.com/watch?v=hqtiuA-i42k'
+  '!mustardinha': 'https://www.youtube.com/watch?v=hqtiuA-i42k',
+  '!macaco': 'https://www.youtube.com/watch?v=JCeWz6Y4pYw'
 };
 
 const queues = {};
