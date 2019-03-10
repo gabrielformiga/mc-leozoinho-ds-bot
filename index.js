@@ -21,7 +21,8 @@ const songs = {
   '!protecao': 'https://www.youtube.com/watch?v=l0aSvVBMzDk',
   '!pv': 'https://www.youtube.com/watch?v=S0spKItTKqc',
   '!mustardinha': 'https://www.youtube.com/watch?v=hqtiuA-i42k',
-  '!macaco': 'https://www.youtube.com/watch?v=JCeWz6Y4pYw'
+  '!macaco': 'https://www.youtube.com/watch?v=JCeWz6Y4pYw',
+  '!senhor': 'https://www.youtube.com/watch?v=vFo-g1n71mk'
 };
 
 const queues = {};
